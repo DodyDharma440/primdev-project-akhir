@@ -2,16 +2,16 @@ import React from "react";
 import Head from "next/head";
 import { Content } from "@/common/layouts";
 
-const HomePage = () => {
+const AroundYouPage = () => {
   return (
     <>
       <Head>
-        <title>Home | Music App</title>
+        <title>Around You | Music App</title>
       </Head>
 
-      <Content title="Discover">Discover</Content>
+      <Content title="Around You">test</Content>
     </>
   );
 };
 
-export default HomePage;
+export default AroundYouPage;
