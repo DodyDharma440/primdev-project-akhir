@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import { Content } from "@/common/layouts";
+import { Hero } from "@/modules/landing-page/components";
 
 const HomePage = () => {
   return (
@@ -9,7 +9,7 @@ const HomePage = () => {
         <title>Home | Music App</title>
       </Head>
 
-      <Content title="Discover">Discover</Content>
+      <Hero />
     </>
   );
 };
