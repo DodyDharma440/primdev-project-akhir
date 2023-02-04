@@ -1,5 +1,6 @@
 import React from "react";
-import { Box, Container, Text } from "@chakra-ui/react";
+import { Box, Button, Container, HStack, Text } from "@chakra-ui/react";
+import Link from "next/link";
 
 const Navbar = () => {
   return (
@@ -11,6 +12,7 @@ const Navbar = () => {
           boxShadow="md"
           px="6"
           py="4"
+          height="68px"
           position="relative"
           _after={{
             content: "''",
@@ -28,10 +30,32 @@ const Navbar = () => {
           }}
         >
           <Box w="calc(100vw - var(--chakra-space-12))">
-            <Container maxW="container.xl">
-              <Text fontSize="2xl" color="green.400" fontWeight="bold">
-                Cook
-              </Text>
+            <Container display="flex">
+              <Link href="/">
+                <Text fontSize="2xl" color="green.400" fontWeight="bold">
+                  Cook
+                </Text>
+              </Link>
+
+              <HStack
+                spacing="8"
+                display={{ base: "none", lg: "flex" }}
+                zIndex="3"
+                ml={{ lg: "16%", xl: "300px" }}
+              >
+                <Link href="/" shallow>
+                  Home
+                </Link>
+                <Link href="#recipe" shallow>
+                  Recipe
+                </Link>
+                <Link href="#about" shallow>
+                  About Us
+                </Link>
+                <Button colorScheme="green" zIndex="3">
+                  Get Started
+                </Button>
+              </HStack>
             </Container>
           </Box>
         </Box>

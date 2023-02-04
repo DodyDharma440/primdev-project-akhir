@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../Footer";
 import Navbar from "../Navbar";
 
 type PageLayoutProps = {
@@ -10,6 +11,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({ children }) => {
     <div>
       <Navbar />
       {children}
+      <Footer />
     </div>
   );
 };

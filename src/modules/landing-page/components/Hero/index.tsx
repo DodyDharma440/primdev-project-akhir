@@ -21,7 +21,7 @@ const Hero = () => {
       <Grid templateColumns="repeat(12, 1fr)">
         <GridItem colSpan={4} zIndex="2">
           <Box w="100vw" h="100%" overflow="hidden">
-            <Container maxW="container.xl" h="100%">
+            <Container h="100%">
               <Flex flexDirection="column" justifyContent="center" h="100%">
                 <Box mb="4">
                   <Heading
@@ -61,7 +61,7 @@ const Hero = () => {
             <Box
               flex="1"
               transform="skewX(-15deg)"
-              backgroundImage="url(https://www.themealdb.com/images/media/meals/1548772327.jpg)"
+              backgroundImage="url(/images/hero-banner.jpg)"
               w="100%"
               height="100%"
               backgroundPosition="center"

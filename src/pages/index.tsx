@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import { Hero, Recipes } from "@/modules/landing-page/components";
+import { About, Hero, Recipes } from "@/modules/landing-page/components";
 
 const HomePage = () => {
   return (
@@ -9,8 +9,15 @@ const HomePage = () => {
         <title>Home</title>
       </Head>
 
-      <Hero />
-      <Recipes />
+      <section id="home">
+        <Hero />
+      </section>
+      <section id="recipe">
+        <Recipes />
+      </section>
+      <section id="about">
+        <About />
+      </section>
     </>
   );
 };

@@ -21,7 +21,7 @@ const MealCard: React.FC<MealCardProps> = ({ meal }) => {
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
     >
-      <Box zIndex="1">
+      <Box zIndex="1" h="100%">
         <Box
           transform={`scale(${isHover ? "1.2" : "1"})`}
           transition="transform 0.6s ease-out"
@@ -32,8 +32,7 @@ const MealCard: React.FC<MealCardProps> = ({ meal }) => {
             src={meal.strMealThumb}
             alt={`Thumb ${meal.strMeal}`}
             objectFit="cover"
-            width={300}
-            height={400}
+            layout="fill"
           />
         </Box>
         <Box position="absolute" inset="0" bg="black" opacity="0.6" />

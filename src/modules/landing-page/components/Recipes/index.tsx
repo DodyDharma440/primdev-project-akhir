@@ -37,11 +37,11 @@ const Recipes = () => {
         />
       </Box>
 
-      <Container maxW="container.xl">
+      <Container>
         <Grid templateColumns="repeat(12, 1fr)" gap="4">
           {meals.slice(0, 8).map((meal, index) => {
             return (
-              <GridItem colSpan={3} key={index}>
+              <GridItem colSpan={{ base: 12, md: 6, lg: 3 }} key={index}>
                 <MealCard meal={meal} />
               </GridItem>
             );
