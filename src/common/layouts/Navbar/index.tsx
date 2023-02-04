@@ -15,14 +15,16 @@ const Navbar = () => {
           _after={{
             content: "''",
             position: "absolute",
-            right: "-100px",
-            top: "0",
-            dropShadow: "md",
-            width: "",
-            height: 0,
+            right: "-62px",
+            top: "-25px",
             borderStyle: "solid",
-            borderWidth: "68px 100px 0 0",
-            borderColor: "#fff transparent transparent transparent",
+            width: "100px",
+            height: "68px",
+            backgroundColor: "#fff",
+            boxShadow:
+              "3px 4px 6px -1px rgba(0, 0, 0, 0.1),5px 2px 4px -1px rgba(0, 0, 0, 0.06)",
+            transform: "rotate(-45deg)",
+            borderLeft: "2px solid #fff",
           }}
         >
           <Box w="calc(100vw - var(--chakra-space-12))">

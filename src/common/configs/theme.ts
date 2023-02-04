@@ -1,4 +1,4 @@
-import { extendTheme } from "@chakra-ui/react";
+import { Button, extendTheme, Input } from "@chakra-ui/react";
 
 const theme = extendTheme({
   initialColorMode: "light",
@@ -8,5 +8,8 @@ const theme = extendTheme({
     body: "'Inter', sans-serif",
   },
 });
+
+Button.defaultProps = { ...Button.defaultProps, borderRadius: "0" };
+Input.defaultProps = { ...Input.defaultProps, borderRadius: "0" };
 
 export default theme;

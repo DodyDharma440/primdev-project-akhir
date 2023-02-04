@@ -17,9 +17,9 @@ import { HiSearch } from "react-icons/hi";
 
 const Hero = () => {
   return (
-    <Flex w="100vw" overflow="hidden">
+    <Flex w="100vw" overflow="hidden" mb="10">
       <Grid templateColumns="repeat(12, 1fr)">
-        <GridItem colSpan={5} zIndex="2">
+        <GridItem colSpan={4} zIndex="2">
           <Box w="100vw" h="100%" overflow="hidden">
             <Container maxW="container.xl" h="100%">
               <Flex flexDirection="column" justifyContent="center" h="100%">
@@ -39,7 +39,7 @@ const Hero = () => {
                 <HStack>
                   <Input
                     placeholder="Search Recipe..."
-                    w="400px"
+                    w="300px"
                     size="lg"
                     focusBorderColor="green.500"
                   />
@@ -56,20 +56,23 @@ const Hero = () => {
             </Container>
           </Box>
         </GridItem>
-        <GridItem colSpan={7}>
-          <Box
-            flex="1"
-            transform="skewX(15deg) translateX(120px)"
-            backgroundImage="url(https://www.themealdb.com/images/media/meals/1548772327.jpg)"
-            height="100%"
-            backgroundPosition="center"
-            backgroundRepeat="no-repeat"
-            backgroundSize="cover"
-            w="100%"
-            minH="800px"
-            position="relative"
-          >
-            <Box position="absolute" backgroundColor="#00000051" inset="0" />
+        <GridItem colSpan={8}>
+          <Box transform="skewX(15deg) translateX(20%)" overflow="hidden">
+            <Box
+              flex="1"
+              transform="skewX(-15deg)"
+              backgroundImage="url(https://www.themealdb.com/images/media/meals/1548772327.jpg)"
+              w="100%"
+              height="100%"
+              backgroundPosition="center"
+              backgroundRepeat="no-repeat"
+              backgroundSize="cover"
+              minH="800px"
+              position="relative"
+              ml="-12%"
+            >
+              <Box position="absolute" backgroundColor="#00000051" inset="0" />
+            </Box>
           </Box>
         </GridItem>
       </Grid>
