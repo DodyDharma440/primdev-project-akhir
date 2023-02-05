@@ -1,24 +1,17 @@
 import React, { useMemo } from "react";
-import {
-  Box,
-  Button,
-  Center,
-  Container,
-  Divider,
-  Grid,
-  GridItem,
-  Heading,
-} from "@chakra-ui/react";
-import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
-import { apiMeal } from "@/common/api";
-import { IMeal } from "@/modules/meals/interfaces";
+import { Box, Container, Grid, GridItem } from "@chakra-ui/react";
+import { useCategory } from "../../stores";
+import { getMealsByCategory } from "../../api";
+import Categories from "../Categories";
 import { MealCard } from "@/modules/meals/components";
 
-const Recipes = () => {
+const ExploreContent = () => {
+  const { activeCategory } = useCategory();
   const { data, isLoading } = useQuery({
-    queryKey: ["recipes-home"],
-    queryFn: () => apiMeal.get<{ meals: IMeal[] }>(`/filter.php?c=Seafood`),
+    queryKey: [`meals-${activeCategory}`],
+    queryFn: () => getMealsByCategory({ category: activeCategory }),
+    enabled: Boolean(activeCategory),
   });
 
   const meals = useMemo(() => {
@@ -26,19 +19,9 @@ const Recipes = () => {
   }, [data?.data.meals]);
 
   return (
-    <Box py="80px">
-      <Box mb="8">
-        <Heading textAlign="center">Our Recipes</Heading>
-        <Divider
-          my="4"
-          w="150px"
-          borderColor="green.500"
-          borderBottomWidth="5px"
-          mx="auto"
-        />
-      </Box>
-
-      <Container>
+    <Container py="20">
+      <Categories />
+      <Box my="6">
         <Grid templateColumns="repeat(12, 1fr)" gap="4">
           {isLoading ? (
             <>
@@ -52,7 +35,7 @@ const Recipes = () => {
             </>
           ) : (
             <>
-              {meals.slice(0, 8).map((meal, index) => {
+              {meals.map((meal, index) => {
                 return (
                   <GridItem colSpan={{ base: 12, md: 6, lg: 3 }} key={index}>
                     <MealCard meal={meal} />
@@ -62,16 +45,9 @@ const Recipes = () => {
             </>
           )}
         </Grid>
-        <Center my="6">
-          <Link href="/recipes">
-            <Button colorScheme="green" size="lg">
-              More Recipes
-            </Button>
-          </Link>
-        </Center>
-      </Container>
-    </Box>
+      </Box>
+    </Container>
   );
 };
 
-export default Recipes;
+export default ExploreContent;

@@ -1,8 +1,11 @@
 import React from "react";
-import { Box, Button, Container, HStack, Text } from "@chakra-ui/react";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { Box, Button, Container, HStack, Text } from "@chakra-ui/react";
 
 const Navbar = () => {
+  const router = useRouter();
+
   return (
     <Box position="fixed" top="0" w="100%" zIndex="100">
       <Box position="relative">
@@ -41,20 +44,27 @@ const Navbar = () => {
                 spacing="8"
                 display={{ base: "none", lg: "flex" }}
                 zIndex="3"
-                ml={{ lg: "16%", xl: "300px" }}
+                ml={{
+                  lg: "16%",
+                  xl: router.pathname === "/recipes" ? "400px" : "300px",
+                }}
               >
                 <Link href="/" shallow>
                   Home
                 </Link>
-                <Link href="#recipe" shallow>
+                <Link href="/#recipe" shallow>
                   Recipe
                 </Link>
-                <Link href="#about" shallow>
+                <Link href="/#about" shallow>
                   About Us
                 </Link>
-                <Button colorScheme="green" zIndex="3">
-                  Get Started
-                </Button>
+                {router.pathname === "/recipes" ? null : (
+                  <Link href="/recipes">
+                    <Button colorScheme="green" zIndex="3">
+                      Get Started
+                    </Button>
+                  </Link>
+                )}
               </HStack>
             </Container>
           </Box>
