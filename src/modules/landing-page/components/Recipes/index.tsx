@@ -13,7 +13,7 @@ import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
 import { apiMeal } from "@/common/api";
 import { IMeal } from "@/modules/meals/interfaces";
-import { MealCard } from "@/modules/meals/components";
+import { MealCard, MealsGrid } from "@/modules/meals/components";
 
 const Recipes = () => {
   const { data, isLoading } = useQuery({
@@ -39,29 +39,7 @@ const Recipes = () => {
       </Box>
 
       <Container>
-        <Grid templateColumns="repeat(12, 1fr)" gap="4">
-          {isLoading ? (
-            <>
-              {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => {
-                return (
-                  <GridItem colSpan={{ base: 12, md: 6, lg: 3 }} key={i}>
-                    <MealCard.Skeleton />
-                  </GridItem>
-                );
-              })}
-            </>
-          ) : (
-            <>
-              {meals.slice(0, 8).map((meal, index) => {
-                return (
-                  <GridItem colSpan={{ base: 12, md: 6, lg: 3 }} key={index}>
-                    <MealCard meal={meal} />
-                  </GridItem>
-                );
-              })}
-            </>
-          )}
-        </Grid>
+        <MealsGrid isLoading={isLoading} meals={meals.slice(0, 8)} />
         <Center my="6">
           <Link href="/recipes">
             <Button colorScheme="green" size="lg">

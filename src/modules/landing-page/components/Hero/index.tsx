@@ -1,3 +1,4 @@
+import React, { useCallback } from "react";
 import {
   Box,
   Button,
@@ -7,15 +8,22 @@ import {
   GridItem,
   Heading,
   HStack,
-  IconButton,
   Input,
   Text,
 } from "@chakra-ui/react";
-import React from "react";
+import { useRouter } from "next/router";
 import { HiSearch } from "react-icons/hi";
-// import {}
+import { useSearch } from "@/modules/explore/stores";
 
 const Hero = () => {
+  const router = useRouter();
+  const { searchValue, setSearchValue, setFreezedValue } = useSearch();
+
+  const handleSearch = useCallback(() => {
+    setFreezedValue(searchValue);
+    router.push(`/search?q=${searchValue}`);
+  }, [router, searchValue, setFreezedValue]);
+
   return (
     <Flex w="100vw" overflow="hidden" mb="10">
       <Grid templateColumns="repeat(12, 1fr)">
@@ -42,12 +50,15 @@ const Hero = () => {
                     w="300px"
                     size="lg"
                     focusBorderColor="green.500"
+                    value={searchValue}
+                    onChange={(e) => setSearchValue(e.target.value)}
                   />
                   <Button
                     leftIcon={<HiSearch />}
                     aria-label="Search"
                     size="lg"
                     colorScheme="green"
+                    onClick={handleSearch}
                   >
                     Search
                   </Button>

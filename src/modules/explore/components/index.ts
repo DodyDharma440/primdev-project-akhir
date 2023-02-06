@@ -1,3 +1,5 @@
 import ExploreContent from "./ExploreContent";
+import Search from "./Search";
+import SearchContent from "./SearchContent";
 
-export { ExploreContent };
+export { ExploreContent, Search, SearchContent };

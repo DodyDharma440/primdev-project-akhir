@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
+import { Box, Button, Container, Text, Skeleton } from "@chakra-ui/react";
 import { apiMeal } from "@/common/api";
-import { Box, Button, Container, Skeleton } from "@chakra-ui/react";
 import { ICategory } from "@/modules/categories/interfaces";
 import { useCategory } from "../../stores";
 
@@ -24,6 +24,10 @@ const Categories = () => {
 
   return (
     <Container maxW="container.md">
+      <Text textAlign="center" mb="2" fontSize="sm" fontWeight="bold">
+        Filter by Categories
+      </Text>
+
       <Box
         overflowX="auto"
         whiteSpace="nowrap"
