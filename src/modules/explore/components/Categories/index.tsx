@@ -1,15 +1,14 @@
 import React, { useEffect, useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Box, Button, Container, Text, Skeleton } from "@chakra-ui/react";
-import { apiMeal } from "@/common/api";
-import { ICategory } from "@/modules/categories/interfaces";
 import { useCategory } from "../../stores";
+import { getCategories } from "@/modules/categories/api";
 
 const Categories = () => {
   const { activeCategory, onChangeCategory } = useCategory();
-  const { data, isLoading, error } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ["categories"],
-    queryFn: () => apiMeal.get<{ categories: ICategory[] }>("/categories.php"),
+    queryFn: () => getCategories(),
   });
 
   const categories = useMemo(() => {
