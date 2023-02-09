@@ -9,13 +9,10 @@ Tech Stacks :
 - [Typescript](https://typescriptlang.org)
 - [Zustand](https://zustand.surge.sh)
 
-API public yang digunakan :
-[TheMealDB](https://www.themealdb.com/api.php)
+API public yang digunakan : [TheMealDB](https://www.themealdb.com/api.php)
 
-Sumber UI Design
-[Masak - Recipe Website by dwiky setiawan](https://www.uplabs.com/posts/masak-recipe-website)
+Sumber UI Design : [Masak - Recipe Website by dwiky setiawan](https://www.uplabs.com/posts/masak-recipe-website)
 
-Demo Website
-https://cook-app-primdev.vercel.app
+Demo Website : https://cook-app-primdev.vercel.app
 
-![app screenshot](https://cook-app-primdev.vercel.app/images/app-screenshot.png "App Screenshot")
+![app screenshot](/public/images/app-screenshot.png "App Screenshot")
