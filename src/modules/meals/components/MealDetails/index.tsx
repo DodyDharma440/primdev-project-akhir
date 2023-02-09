@@ -94,19 +94,27 @@ const MealDetails: React.FC<MealDetailsProps> = ({ mealId }) => {
             <Icon as={IoMdListBox} color="green.500" fontSize="18px" />
             <Text color="gray.700">{meal?.strCategory}</Text>
           </HStack>
-          <Text display={{ base: "none", md: "block" }} px="2" color="gray.400">
-            |
-          </Text>
-          <HStack>
-            <Icon as={IoMdPricetag} color="green.500" fontSize="18px" />
-            {meal?.strTags.split(",").map((tag, index) => {
-              return (
-                <Tag color="gray.700" key={index}>
-                  {tag}
-                </Tag>
-              );
-            })}
-          </HStack>
+          {meal?.strTags?.length ? (
+            <>
+              <Text
+                display={{ base: "none", md: "block" }}
+                px="2"
+                color="gray.400"
+              >
+                |
+              </Text>
+              <HStack>
+                <Icon as={IoMdPricetag} color="green.500" fontSize="18px" />
+                {meal?.strTags?.split(",").map((tag, index) => {
+                  return (
+                    <Tag color="gray.700" key={index}>
+                      {tag}
+                    </Tag>
+                  );
+                })}
+              </HStack>
+            </>
+          ) : null}
           <Text display={{ base: "none", md: "block" }} px="2" color="gray.400">
             |
           </Text>

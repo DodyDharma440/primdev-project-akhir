@@ -13,7 +13,7 @@ import {
 
 const Footer = () => {
   return (
-    <Box bg="white" py="12">
+    <Box bg="white" py="12" borderTop="1px solid" borderColor="gray.100">
       <Container>
         <Center flexDirection="column">
           <Link href="/">
@@ -21,7 +21,11 @@ const Footer = () => {
               Cook App
             </Heading>
           </Link>
-          <Stack direction={{ base: "column", lg: "row" }}>
+          <Stack
+            direction={{ base: "column", lg: "row" }}
+            justifyContent="center"
+            alignItems="center"
+          >
             <Link href="#">
               <Text
                 mx="4"

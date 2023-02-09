@@ -27,7 +27,7 @@ const Hero = () => {
   return (
     <Flex w="100vw" overflow="hidden" mb="10">
       <Grid templateColumns="repeat(12, 1fr)">
-        <GridItem colSpan={4} zIndex="2">
+        <GridItem colSpan={4} zIndex="2" minH="800px">
           <Box w="100vw" h="100%" overflow="hidden">
             <Container h="100%">
               <Flex flexDirection="column" justifyContent="center" h="100%">
@@ -68,7 +68,11 @@ const Hero = () => {
           </Box>
         </GridItem>
         <GridItem colSpan={8}>
-          <Box transform="skewX(15deg) translateX(20%)" overflow="hidden">
+          <Box
+            display={{ base: "none", lg: "block" }}
+            transform="skewX(15deg) translateX(20%)"
+            overflow="hidden"
+          >
             <Box
               flex="1"
               transform="skewX(-15deg)"

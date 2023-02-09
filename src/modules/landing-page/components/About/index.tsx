@@ -9,10 +9,12 @@ import {
   Grid,
   GridItem,
   Heading,
+  Stack,
   Text,
 } from "@chakra-ui/react";
 import TestiItem from "./TestiItem";
 import { testimonials } from "../../constants";
+import Link from "next/link";
 
 const About = () => {
   return (
@@ -40,7 +42,11 @@ const About = () => {
           <Grid templateColumns="repeat(12, 1fr)" gap="6">
             {testimonials.map((testi, index) => {
               return (
-                <GridItem key={index} colSpan={4}>
+                <GridItem
+                  key={index}
+                  colSpan={{ base: 12, sm: 6, lg: 4 }}
+                  mb={{ base: "8", lg: "0" }}
+                >
                   <TestiItem testi={testi} />
                 </GridItem>
               );
@@ -52,17 +58,24 @@ const About = () => {
       <Box bg="gray.50" py="20">
         <Container bg="white" py="10">
           <Container maxW="90%">
-            <Flex justifyContent="space-between" alignItems="center">
-              <Box>
+            <Stack
+              direction={{ base: "column", lg: "row" }}
+              justifyContent={{ base: "center", lg: "space-between" }}
+              alignItems="center"
+              spacing={{ base: "4", lg: "2" }}
+            >
+              <Box textAlign={{ base: "center", lg: "left" }}>
                 <Heading fontSize="3xl" fontWeight="700" mb="3">
                   Are you ready to cook healthy food?
                 </Heading>
                 <Text fontSize="lg">Find your favourite recipe now!</Text>
               </Box>
-              <Button size="lg" colorScheme="green">
-                Get Started
-              </Button>
-            </Flex>
+              <Link href="/recipes">
+                <Button size="lg" colorScheme="green">
+                  Get Started
+                </Button>
+              </Link>
+            </Stack>
           </Container>
         </Container>
       </Box>

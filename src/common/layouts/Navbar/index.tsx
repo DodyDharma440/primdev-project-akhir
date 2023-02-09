@@ -2,13 +2,14 @@ import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Box, Button, Container, HStack, Text } from "@chakra-ui/react";
+import MobileNavbar from "./MobileNavbar";
 
 const Navbar = () => {
   const router = useRouter();
 
   return (
     <Box position="fixed" top="0" w="100%" zIndex="100">
-      <Box position="relative">
+      <Box display={{ base: "none", lg: "block" }} position="relative">
         <Box
           w="60%"
           bg="white"
@@ -70,6 +71,7 @@ const Navbar = () => {
           </Box>
         </Box>
       </Box>
+      <MobileNavbar />
     </Box>
   );
 };
