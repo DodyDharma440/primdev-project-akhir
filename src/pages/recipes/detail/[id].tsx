@@ -1,19 +1,20 @@
 import React from "react";
 import Head from "next/head";
 import { GetServerSideProps, NextPage } from "next";
+import { MealDetails } from "@/modules/meals/components";
 
 type RecipeProps = {
   mealId: string;
 };
 
-const Recipe: NextPage<RecipeProps> = ({mealId}) => {
+const Recipe: NextPage<RecipeProps> = ({ mealId }) => {
   return (
     <>
       <Head>
         <title>Recipe Detail</title>
       </Head>
 
-      {mealId}
+      <MealDetails mealId={mealId} />
     </>
   );
 };

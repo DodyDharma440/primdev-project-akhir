@@ -56,3 +56,9 @@ export interface IMealDetail extends IMeal {
   strCreativeCommonsConfirmed: string | null;
   dateModified: string | null;
 }
+
+export interface IIngredient {
+  name: string;
+  measurement: string;
+  thumbnailUrl: string;
+}
